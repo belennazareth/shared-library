@@ -1,6 +1,6 @@
-import org.nazaret.utilities
+import org.nazaret.Utilities
 
-def utilities = new org.nazaret.utilities()
+Utilities utilities = new Utilities()
 
 def call(){                       
     pipeline{                      
