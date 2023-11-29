@@ -1,6 +1,6 @@
 package org.nazaret
 
-def imprimirMensaje(String mensaje) {
+Void imprimirMensaje(String mensaje) {
     println(${mensaje})
 }
 
