@@ -1,3 +1,7 @@
+import org.nazaret.utilities
+
+def utilities = new org.nazaret.utilities()
+
 def call(){                       
     pipeline{                      
        agent any                       
@@ -5,7 +9,7 @@ def call(){
           stage('Config') {                       
               steps {                       
                   script {                                            
-                      println "Pipeline ejecutado!"                       
+                      utilities.imprimirMensaje("Pipeline ejecutado!")                       
                   }                      
               }                      
           }                      
