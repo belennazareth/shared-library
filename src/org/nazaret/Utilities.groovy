@@ -1,7 +1,7 @@
 package org.nazaret
 
-Void imprimirMensaje(String mensaje) {
-    println(mensaje)
+Void printMessage(String message) {
+    println(message)
 }
 
 return this
