@@ -1,7 +1,6 @@
 import org.nazaret.Utilities
 
 def call() {
-    // Utilities utilities = new Utilities()
     def utilities = new org.nazaret.Utilities()                   
     pipeline{                      
        agent any                       
