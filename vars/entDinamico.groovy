@@ -1,8 +1,8 @@
 import org.nazaret.Utilities
 
 def call() {
-    Utilities utilities = new Utilities()
-                       
+    // Utilities utilities = new Utilities()
+    def utilities = org.nazaret.Utilities()                   
     pipeline{                      
        agent any                       
        stages {                       
