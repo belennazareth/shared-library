@@ -8,8 +8,9 @@ def call(){
        stages {                       
           stage('Config') {                       
               steps {                       
-                  script {                                            
-                      utilities.imprimirMensaje("Pipeline ejecutado!")                       
+                  script {
+                        String mensaje = "Pipeline ejecutado!"                       
+                        utilities.imprimirMensaje(mensaje)                       
                   }                      
               }                      
           }                      
