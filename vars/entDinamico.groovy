@@ -11,7 +11,7 @@ def call() {
               steps {                       
                   script {
                         env.TAG_NAME = env.BRANCH_NAME.toLowerCase().replaceAll("_", "-")
-                        String message = "Pipeline ejecutado!"                     
+                        String message = "Branch to use: ${env.TAG_NAME}"                     
                         utilities.printMessage(message)                       
                   }                      
               }                      
