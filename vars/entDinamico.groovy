@@ -22,7 +22,14 @@ def call() {
                         build.buildContainer(env.TAG_NAME)                       
                   }                      
               }                      
-          }                     
+          }
+        //   stage('Deploy') {                       
+        //       steps {                       
+        //           script {                      
+        //                 build.buildContainer(env.TAG_NAME)                       
+        //           }                      
+        //       }                      
+        //   }                     
        }                       
     }       
  }
