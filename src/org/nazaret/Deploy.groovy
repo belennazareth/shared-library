@@ -1,7 +1,7 @@
 package org.nazaret
 
 Void deployK8s(String tag) {
-    helm upgrade --install -f values.yaml . -n ${tag} --create-namespace --set image.tag=${tag}
+    sh "helm upgrade --install -f values.yaml . -n ${tag} --create-namespace --set image.tag=${tag}"
 }
 
 return this
