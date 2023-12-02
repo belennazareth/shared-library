@@ -1,7 +1,7 @@
-// package org.nazaret
+package org.nazaret
 
-// Void buildContainer(String tag) {
-//     docker.build("belennazareth/app:${tag}")
-// }
+Void deployK8s(String tag) {
+    helm upgrade --install -f values.yaml . -n ${tag} --create-namespace --set image.tag=${tag}
+}
 
-// return this
+return this

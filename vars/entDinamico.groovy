@@ -1,9 +1,11 @@
 import org.nazaret.Utilities
 import org.nazaret.Build
+import org.nazaret.Deploy
 
 def call() {
     def utilities = new org.nazaret.Utilities()
-    def build = new org.nazaret.Build()                   
+    def build = new org.nazaret.Build()
+    def deploy = new org.nazaret.Deploy()                  
     pipeline{                      
        agent any                       
        stages {                       
@@ -23,13 +25,13 @@ def call() {
                   }                      
               }                      
           }
-        //   stage('Deploy') {                       
-        //       steps {                       
-        //           script {                      
-        //                 build.buildContainer(env.TAG_NAME)                       
-        //           }                      
-        //       }                      
-        //   }                     
+          stage('Deploy') {                       
+              steps {                       
+                  script {                      
+                        deploy.deployK8s(env.TAG_NAME)                       
+                  }                      
+              }                      
+          }                     
        }                       
     }       
  }
