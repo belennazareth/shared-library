@@ -1,11 +1,13 @@
 import org.nazaret.Utilities
 import org.nazaret.Build
 import org.nazaret.Deploy
+import org.nazaret.Dns
 
 def call() {
     def utilities = new org.nazaret.Utilities()
     def build = new org.nazaret.Build()
-    def deploy = new org.nazaret.Deploy()                  
+    def deploy = new org.nazaret.Deploy()
+    def dns = new org.nazaret.Dns()                  
     pipeline{                      
        agent any                       
        stages {                       
@@ -34,7 +36,14 @@ def call() {
                         deploy.deployK8s(env.TAG_NAME)                       
                   }                      
               }                      
-          }                     
+          }
+          stage('Dns') {                       
+              steps {                       
+                  script {                      
+                        dns.dnsK8s(env.TAG_NAME)                       
+                  }                      
+              }                      
+          }                    
        }                       
     }       
  }
