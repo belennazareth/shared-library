@@ -25,7 +25,10 @@ def call() {
                   }                      
               }                      
           }
-          stage('Deploy') {                       
+          stage('Deploy') {
+              environment {
+                  HOME = "${env.WORKSPACE}"
+              }                       
               steps {                       
                   script {                      
                         deploy.deployK8s(env.TAG_NAME)                       
