@@ -47,6 +47,13 @@ def call() {
                   }                      
               }                      
           }                    
+       }
+       post {
+            always {
+                script {
+                    cleanWs()
+                }
+            }
        }                       
     }       
  }
