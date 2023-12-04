@@ -38,6 +38,9 @@ def call() {
               }                      
           }
           stage('Dns') {                       
+              environment {
+                  HOME = "${env.WORKSPACE}"
+              }       
               steps {                       
                   script {                      
                         dns.dnsK8s(env.TAG_NAME)                       
