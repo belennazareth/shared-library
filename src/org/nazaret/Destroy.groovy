@@ -22,6 +22,7 @@ Void destroyEnt() {
         returnStdout: true
         ).toLowerCase().replaceAll("_", "-").split('\n')
     
+    println(listaRamasGithub)
     // listaBorrar = listaEntornos - listaApiGithub
 
     // for borar in listaBorrar
