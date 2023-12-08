@@ -22,9 +22,8 @@ Void destroyEnt() {
         returnStdout: true
         ).toLowerCase().replaceAll("_", "-").split('\n')
     
-    println(listaRamasGithub)
-    // listaBorrar = listaEntornos - listaApiGithub
-
+    List<String> listaBorrar = listaEntornos - listaRamasGithub
+    println(listaBorrar)
     // for borar in listaBorrar
 
     // kubectl delete namespace $borrar
