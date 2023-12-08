@@ -5,7 +5,7 @@ Void destroyEnt() {
     sh "mkdir -p ${env.WORKSPACE}/.kube"
     sh "sudo cp -i /etc/kubernetes/admin.conf ${env.WORKSPACE}/.kube/config"
     sh "sudo chown \$(id -u):\$(id -g) ${env.WORKSPACE}/.kube/config"
-    
+
     List<String> listaNoBorrar = [
         'kube-system',
         'kube-public',
@@ -16,9 +16,9 @@ Void destroyEnt() {
     
     List<String> listaAllNamespaces = sh(script: 'kubectl get namespaces -o jsonpath=\'{.items[*].metadata.name}\'', returnStdout: true).trim().split("\\s+")
 
-    println(listaAllNamespaces)
     // listaEntornos = listaAllNamespaces - listaNoBorrar
-    // def listaEntornos = 
+    List<String> listaEntornos = listaAllNamespaces - listaNoBorrar
+    println (listaEntornos)
     // llamadaApiGithub = blabala -> (branches)
 
     // listaBorrar = listaEntornos - listaApiGithub
