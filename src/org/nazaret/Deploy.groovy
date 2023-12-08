@@ -10,7 +10,7 @@ Void deployK8s(String tag) {
 
     def namespaceExiste = sh(script: "kubectl get namespace ${tag}", returnStatus: true)
 
-    if (namespaceExiste == "0") {
+    if (namespaceExiste == 0) {
         restart = true
     }
 
