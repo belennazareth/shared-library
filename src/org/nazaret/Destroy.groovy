@@ -18,7 +18,7 @@ Void destroyEnt() {
     List<String> listaEntornos = listaAllNamespaces - listaNoBorrar
     // llamadaApiGithub = blabala -> (branches)
 
-    Lista<String> listaRamasGithub = sh(
+    List<String> listaRamasGithub = sh(
         script: 'curl -s https://api.github.com/repos/belennazareth/app/branches | jq -r \'.[] | select(.name != "main") | .name\'',
         returnStdout: true
         ).split('\n')
