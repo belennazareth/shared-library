@@ -6,8 +6,11 @@ import org.nazaret.Destroy
 def destroy = new org.nazaret.Destroy()                  
 pipeline{                      
     agent any                       
-    stages {                       
-        stage('Destroy') {                       
+    stages {                  
+        stage('Destroy') {    
+            environment {
+                HOME = "${env.WORKSPACE}"
+            }                    
             steps {                       
                 script {
                     destroy.destroyEnt()                     

@@ -2,6 +2,10 @@ package org.nazaret
 
 Void destroyEnt() {
   
+    sh "mkdir -p ${env.WORKSPACE}/.kube"
+    sh "sudo cp -i /etc/kubernetes/admin.conf ${env.WORKSPACE}/.kube/config"
+    sh "sudo chown \$(id -u):\$(id -g) ${env.WORKSPACE}/.kube/config"
+    
     List<String> listaNoBorrar = [
         'kube-system',
         'kube-public',
