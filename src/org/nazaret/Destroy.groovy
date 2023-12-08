@@ -1,7 +1,9 @@
 package org.nazaret
+import org.nazaret.Dns
 
 Void destroyEnt() {
-  
+    def dns = new org.nazaret.Dns()
+
     sh "mkdir -p ${env.WORKSPACE}/.kube"
     sh "sudo cp -i /etc/kubernetes/admin.conf ${env.WORKSPACE}/.kube/config"
     sh "sudo chown \$(id -u):\$(id -g) ${env.WORKSPACE}/.kube/config"
@@ -26,6 +28,7 @@ Void destroyEnt() {
     
     for (namespace in listaBorrar) {
         sh "kubectl delete namespace ${namespace}"
+        dns.removeDnsEntry(namespace)
     }
 }
 
