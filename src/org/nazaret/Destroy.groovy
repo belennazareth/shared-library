@@ -16,13 +16,11 @@ Void destroyEnt() {
     
     List<String> listaAllNamespaces = sh(script: 'kubectl get namespaces -o jsonpath=\'{.items[*].metadata.name}\'', returnStdout: true).trim().split("\\s+")
     List<String> listaEntornos = listaAllNamespaces - listaNoBorrar
-    // llamadaApiGithub = blabala -> (branches)
 
     List<String> listaRamasGithub = sh(
         script: 'curl -s https://api.github.com/repos/belennazareth/app/branches | jq -r \'.[] | select(.name != "main") | .name\'',
         returnStdout: true
-        ).split('\n')
-    println(listaRamasGithub)
+        ).toLowerCase().replaceAll("_", "-").split('\n')
     
     // listaBorrar = listaEntornos - listaApiGithub
 
